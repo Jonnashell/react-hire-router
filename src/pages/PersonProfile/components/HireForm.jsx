@@ -10,7 +10,7 @@ function HireForm({ person, setHiredPeople }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (person.wage) {
+      if (person.hired) {
         // Update existing wage
         setHiredPeople((prev) => 
           prev.map((p) => p.login.uuid == person.login.uuid
@@ -22,6 +22,7 @@ function HireForm({ person, setHiredPeople }) {
       else {
         // Add new person with wage
         person.wage = wage;
+        person.hired = true;
 
         setHiredPeople((prev) => [
           ...prev,
